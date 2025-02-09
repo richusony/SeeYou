@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import FeatureCard from "../components/ui/FeatureCard"
 import Favicon from "../src/assets/icons/favicon.png";
 
@@ -44,9 +45,9 @@ const HomePage: React.FC = () => {
                         <p className="text-xl sm:text-2xl text-gray-600 mb-8">
                             High-quality video meetings for teams and individuals
                         </p>
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
+                        <Link to="/video-call" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
                             Let's Connect
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
