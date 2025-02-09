@@ -26,7 +26,7 @@ const VideoConference: React.FC = () => {
       sharedLinks: [
         {
           name: "Invite Link",
-          url: `${window.location.origin}?roomID=${roomID}`,
+          url: `${window.location.origin}/video-call?roomID=${roomID}`,
         },
       ],
       scenario: {
