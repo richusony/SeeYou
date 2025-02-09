@@ -43,14 +43,6 @@ To get a local copy up and running, follow these steps:
 
 5. Open [http://localhost:5173](http://localhost:5173) in your browser to see the application.
 
-## Project Structure
-
-- \`app/\`: Contains the main application code
-  - \`page.tsx\`: The main page component
-  - \`components/\`: Reusable React components
-    - \`FeatureCard.tsx\`: Component for displaying feature cards
-- \`public/\`: Static assets
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
