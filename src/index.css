@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
 .call-background{
-    background-image: url("/images/bg-image.jpg");
+    background: url("/images/bg-image.jpg");
 }
+
+@media (max-width: 768px){
+    .call-background{
+        background: rgb(255, 255, 255);
+    }
+} 
