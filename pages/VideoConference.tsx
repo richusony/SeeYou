@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { getUrlParams, randomID } from "../utils/helper.ts";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
+// import backgroundImage from "../public/images/background-image.jpg";
 
 const VideoConference: React.FC = () => {
   const roomID = getUrlParams("roomID") || randomID(5);
@@ -36,10 +37,12 @@ const VideoConference: React.FC = () => {
   }, [roomID]);
 
   return (
-    <div
-      ref={meetingContainer}
-      style={{ width: "100vw", height: "100vh" }}
-    ></div>
+    <div className="call-background bg-no-repeat bg-current h-screen w-full flex justify-center items-center">
+      <div 
+        className="m-auto"
+        ref={meetingContainer}
+      ></div>
+    </div>
   );
 };
 
