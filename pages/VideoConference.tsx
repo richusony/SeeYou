@@ -39,7 +39,7 @@ const VideoConference: React.FC = () => {
   return (
     <div className="call-background bg-no-repeat bg-current h-screen w-full flex justify-center items-center">
       <div 
-        className="m-auto"
+        className="m-auto w-full h-full"
         ref={meetingContainer}
       ></div>
     </div>
