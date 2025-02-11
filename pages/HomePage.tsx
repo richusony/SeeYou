@@ -1,20 +1,34 @@
-import React from "react";
-import {Link} from "react-router-dom"
-import FeatureCard from "../components/ui/FeatureCard"
-import Favicon from "../src/assets/icons/favicon.png";
+import React, { FormEvent, InputHTMLAttributes, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import FeatureCard from "../components/ui/FeatureCard";
 
 const HomePage: React.FC = () => {
+    const [roomId, setRoomId] = useState("");
+    const navigate = useNavigate();
+
+    const onRoomIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.value.length > 5) return;
+        setRoomId(String(e.target.value))
+    }
+
+    const handleRoomConnect = () => {
+        if (!roomId) return;
+        if (roomId.length > 5) return;
+
+        navigate(`/video-call?roomID=${roomId}`);
+    }
+
     return (
         <div className="min-h-screen flex flex-col">
             {/* Header */}
             <header className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
                     <div className="flex items-center">
-                        <img src={Favicon} alt="Logo" width={50} height={40} className="mr-2" />
+                        <img src={"/images/favicon.png"} alt="Logo" width={50} height={40} className="mr-2" />
                         <span className="text-2xl font-bold text-gray-800">SeeYou</span>
                     </div>
                     <nav>
-                        <ul className="flex space-x-4">
+                        <ul className="hidden md:flex space-x-4">
                             <li>
                                 <a href="#" className="text-gray-600 hover:text-gray-900">
                                     Features
@@ -45,9 +59,17 @@ const HomePage: React.FC = () => {
                         <p className="text-xl sm:text-2xl text-gray-600 mb-8">
                             High-quality video meetings for teams and individuals
                         </p>
-                        <Link to="/video-call" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
-                            Let's Connect
-                        </Link>
+                        <div className="p-2 flex flex-col md:flex-row justify-center items-center gap-y-5 md:gap-y-0 md:gap-x-4">
+                            <div>
+                                <Link to="/video-call" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
+                                    New meeting
+                                </Link>
+                            </div>
+                            <div className="flex gap-x-1">
+                                <input onChange={onRoomIdChange} className="py-2 px-2 outline-none border border-blue-300 rounded" value={roomId} type="text" name="roomId" id="roomId" placeholder="Enter Room ID" />
+                                <button onClick={handleRoomConnect} className={`py-3 px-4 ${roomId?"text-blue-600 hover:bg-blue-100 cursor-pointer": "text-gray-400"} text-xl rounded-full`}>Join</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -95,7 +117,7 @@ const HomePage: React.FC = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="mt-4 text-center text-gray-400 text-sm">© 2023 SeeYou. All rights reserved.</div>
+                    <div className="mt-4 text-center text-gray-400 text-sm">© 2025 SeeYou. All rights reserved.</div>
                 </div>
             </footer>
         </div>
